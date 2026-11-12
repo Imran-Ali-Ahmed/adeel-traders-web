@@ -8,7 +8,9 @@
 @source "../**/*.{ts,tsx}";
 
 @theme inline {
-    --font-heading: var(--font-sans);
+    --font-heading: var(--font-display);
+    --color-ink: var(--ink);
+    --color-ink-2: var(--ink-2);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -18,6 +20,9 @@
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar: var(--sidebar);
     --color-chart-5: var(--chart-5);
+    --color-chart-6: var(--chart-6);
+    --color-chart-7: var(--chart-7);
+    --color-chart-8: var(--chart-8);
     --color-chart-4: var(--chart-4);
     --color-chart-3: var(--chart-3);
     --color-chart-2: var(--chart-2);
@@ -26,6 +31,9 @@
     --color-input: var(--input);
     --color-border: var(--border);
     --color-destructive: var(--destructive);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-warning-ink: var(--warning-ink);
     --color-accent-foreground: var(--accent-foreground);
     --color-accent: var(--accent);
     --color-muted-foreground: var(--muted-foreground);
@@ -50,73 +58,94 @@
     --font-sans: var(--font-sans);
 }
 
+/* Adeel Traders staff app — design tokens.
+   Direction: calm back office (research 12 Nov 2026: Linear, Stripe, Attio, Vercel).
+   Quiet light sidebar and canvas, white surfaces, cobalt used only for the primary action,
+   focus and links. Colour carries meaning (stock state, warnings), never decoration.
+   One signature ink-to-cobalt gradient stays for the single hero card on a list page. */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
+    --background: #f6f7f9;
+    --foreground: #0d1426;
+    --card: #ffffff;
+    --card-foreground: #0d1426;
+    --popover: #ffffff;
+    --popover-foreground: #0d1426;
+    --primary: #2d4bff;             /* cobalt */
+    --primary-foreground: #ffffff;
+    --secondary: #eceff6;
+    --secondary-foreground: #1b2440;
+    --muted: #eef1f7;
+    --muted-foreground: #64708a;
+    --accent: #e9edff;
+    --accent-foreground: #1f38d6;
+    --destructive: #e5484d;
+    --success: #12a37a;
+    --warning: #e08a00;
+    --warning-ink: #9a5800;         /* amber text on white, 4.5:1 */
+    --border: #e4e8f0;
+    --input: #d8deea;
+    --ring: #2d4bff;
+    --chart-1: #2d4bff;             /* cobalt  */
+    --chart-2: #7b61ff;             /* violet  */
+    --chart-3: #f59e0b;             /* amber   */
+    --chart-4: #12a37a;             /* emerald */
+    --chart-5: #f43f74;             /* rose    */
+    --chart-6: #0e9fb3;             /* teal    */
+    --chart-7: #c026d3;             /* fuchsia */
+    --chart-8: #65a30d;             /* lime    */
+    --ink: #0b1020;                 /* signature gradient start */
+    --ink-2: #1a2766;
     --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    --sidebar: #eef0f4;
+    --sidebar-foreground: #4a5470;
+    --sidebar-primary: #2d4bff;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #e3e7ef;
+    --sidebar-accent-foreground: #0d1426;
+    --sidebar-border: #e1e5ec;
+    --sidebar-ring: #2d4bff;
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --background: #080b14;
+    --foreground: #e9edf7;
+    --card: #10162a;
+    --card-foreground: #e9edf7;
+    --popover: #121935;
+    --popover-foreground: #e9edf7;
+    --primary: #5b74ff;
+    --primary-foreground: #ffffff;
+    --secondary: #182038;
+    --secondary-foreground: #e9edf7;
+    --muted: #161d33;
+    --muted-foreground: #8d97b3;
+    --accent: #1b2550;
+    --accent-foreground: #cfd8ff;
+    --destructive: #ff6b70;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --warning-ink: #fbbf24;
+    --border: #1e2742;
+    --input: #263052;
+    --ring: #5b74ff;
+    --chart-1: #6f86ff;
+    --chart-2: #9d8bff;
+    --chart-3: #fbbf24;
+    --chart-4: #34d399;
+    --chart-5: #fb7199;
+    --chart-6: #2fc6da;
+    --chart-7: #e879f9;
+    --chart-8: #a3e635;
+    --ink: #0e1430;
+    --ink-2: #26359a;
+    --sidebar: #0b0f1c;
+    --sidebar-foreground: #9aa3bd;
+    --sidebar-primary: #5b74ff;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #161d33;
+    --sidebar-accent-foreground: #e9edf7;
+    --sidebar-border: #182038;
+    --sidebar-ring: #5b74ff;
 }
 
 @layer base {
@@ -125,5 +154,23 @@
     }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "tnum" 1;  /* tabular numbers: prices and quantities line up */
     }
+  /* Tailwind v4 resets buttons to the default arrow. Anything clickable gets the hand. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="tab"],
+  [role="option"],
+  [role="menuitem"],
+  [role="combobox"],
+  summary,
+  label[for],
+  a[href],
+  select:not(:disabled) {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
 }
